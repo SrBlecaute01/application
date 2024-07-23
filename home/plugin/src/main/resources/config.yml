@@ -1,4 +1,14 @@
 
+home-settings:
+  limit: 3
+  min-name: 3
+  max-name: 16
+
+  teleport-delay: 3
+  teleport-particle: 'PORTAL'
+  teleport-particles-count: 10
+  teleport-sound: 'ENTITY_ENDERMAN_TELEPORT'
+
 home-command:
 
 set-home-command:
@@ -9,5 +19,15 @@ help-command:
 
 
 messages:
-  
   home-not-found: "&cEssa home não foi encontrada!"
+
+  home-limit-reached: '&cVocê atingiu o limite de homes!'
+  home-already-exists: '&cUma home com esse nome já foi definida!'
+  home-name-length: '&cO nome da home tem que ter no mínimo 3 e no máximo 16 caracteres!'
+  home-created: '&aA home {0} foi definida com sucesso!'
+  home-deleted: '&aA home {0} foi deletada com sucesso!'
+
+  teleporting: '&aTeleportando em {0} segundo(s). Não se mova!'
+  teleport-cancelled: '&cTeleporte cancelado! Você se moveu.'
+  teleport-blocked: '&cNão foi possível te teletransportar até a sua home!'
+  teleported: '&aVocê foi teletransportado até a sua home!'

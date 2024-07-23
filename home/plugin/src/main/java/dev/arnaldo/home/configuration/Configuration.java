@@ -86,6 +86,15 @@ public class Configuration {
     }
 
     @SuppressWarnings("unchecked")
+    public <T extends Enum<T>> T asEnum(Class<T> clazz) {
+        if (!(object instanceof Enum)) {
+            object = Enum.valueOf(clazz, object.toString().toUpperCase());
+        }
+
+        return (T) object;
+    }
+
+    @SuppressWarnings("unchecked")
     public <T> List<T> asList(Class<T> clazz) {
         return (List<T>) object;
     }

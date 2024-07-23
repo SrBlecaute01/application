@@ -10,6 +10,15 @@ import org.jetbrains.annotations.NotNull;
 @RequiredArgsConstructor
 public enum HomeSettings {
 
+    HOME_LIMIT("home-settings.limit"),
+    HOME_MIN_NAME("home-settings.min-name"),
+    HOME_MAX_NAME("home-settings.max-name"),
+
+    TELEPORT_DELAY("home-settings.teleport-delay"),
+    TELEPORT_PARTICLES("home-settings.teleport-particles"),
+    TELEPORT_PARTICLES_COUNT("home-settings.teleport-particles-count"),
+    TELEPORT_SOUND("home-settings.teleport-sound")
+
     ;
 
     private final String path;

@@ -25,9 +25,7 @@ public interface HomeService {
 
     CompletableFuture<HomeResponse> createHome(@NonNull HomeUser user, @NonNull String name, @NonNull Position position);
 
-    Optional<Home> getHomeIfPresent(@NonNull String owner, @NonNull String name);
-
-    HomeResponse deleteHome(@NonNull String owner, @NonNull String name);
+    HomeResponse deleteHome(@NonNull Home home);
 
     CompletableFuture<HomeResponse> teleport(@NonNull Player player, @NonNull Home home);
 

@@ -7,6 +7,8 @@ import dev.arnaldo.home.service.HomeService;
 import dev.arnaldo.home.util.Position;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
+import revxrsal.commands.annotation.Command;
+import revxrsal.commands.annotation.Range;
 import revxrsal.commands.command.CommandActor;
 import revxrsal.commands.help.CommandHelp;
 
@@ -26,7 +28,7 @@ public class HomeCommand {
     public void onHomeCommand(Player player, Home home) {
         this.service.teleport(player, home).whenComplete((response, failure) -> {
             if (failure != null) logger.log(Level.SEVERE, "Failed to teleport player " + player.getName(), failure);
-            if (response != null) player.sendMessage(response.getMessage());
+            if (response != null && response.getMessage() != null) player.sendMessage(response.getMessage());
         });
     }
 
@@ -37,15 +39,16 @@ public class HomeCommand {
                 .thenCompose(user -> user.addHome(home, Position.of(player.getLocation())))
                 .whenComplete((response, failure) -> {
                     if (failure != null) logger.log(Level.SEVERE, "Failed to set home for player " + player.getName(), failure);
-                    if (response != null) player.sendMessage(response.getMessage());
+                    if (response != null && response.getMessage() != null) player.sendMessage(response.getMessage());
                 });
     }
 
     @HelpPosition(3)
     @CommandPath("del-home-command")
     public void onDelHomeCommand(Player player, Home home) {
-        final var response = this.service.deleteHome(player.getName(), home.getName());
-        player.sendMessage(response.getMessage());
+        final var response = this.service.deleteHome(home);
+        if (response.getMessage() != null)
+            player.sendMessage(response.getMessage());
     }
 
     @HelpPosition(10)

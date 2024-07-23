@@ -1,6 +1,5 @@
-package dev.arnaldo.home.model.impl;
+package dev.arnaldo.home.model;
 
-import dev.arnaldo.home.model.Home;
 import dev.arnaldo.home.model.response.HomeResponse;
 import dev.arnaldo.home.service.HomeService;
 import dev.arnaldo.home.util.Position;

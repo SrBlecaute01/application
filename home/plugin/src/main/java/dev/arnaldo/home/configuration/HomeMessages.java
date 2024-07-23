@@ -10,7 +10,17 @@ import org.jetbrains.annotations.NotNull;
 @RequiredArgsConstructor
 public enum HomeMessages {
 
-    HOME_NOT_FOUND("home-not-found")
+    HOME_NOT_FOUND("home-not-found"),
+    HOME_ALREADY_EXISTS("home-already-exists"),
+    HOME_LIMIT_REACHED("home-limit-reached"),
+    HOME_NAME_LENGTH("home-name-length"),
+    HOME_CREATED("home-created"),
+    HOME_DELETED("home-deleted"),
+
+    TELEPORTING("teleporting"),
+    TELEPORT_CANCELLED("teleport-cancelled"),
+    TELEPORT_BLOCKED("teleport-blocked"),
+    TELEPORTED("teleported")
 
     ;
 
