@@ -1,3 +1,8 @@
 
-
 home-command:
+
+set-home-command:
+
+del-home-command:
+
+help-command:
