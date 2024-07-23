@@ -20,7 +20,9 @@ public enum HomeMessages {
     TELEPORTING("teleporting"),
     TELEPORT_CANCELLED("teleport-cancelled"),
     TELEPORT_BLOCKED("teleport-blocked"),
-    TELEPORTED("teleported")
+    TELEPORTED("teleported"),
+
+    PLAYER_HOMES("player-homes"),
 
     ;
 

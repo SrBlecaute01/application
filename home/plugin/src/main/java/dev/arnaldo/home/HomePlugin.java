@@ -9,7 +9,6 @@ import dev.arnaldo.home.command.reader.YamlLocaleReader;
 import dev.arnaldo.home.command.replacer.CommandPathReplacer;
 import dev.arnaldo.home.command.replacer.FileCommandReplacer;
 import dev.arnaldo.home.command.resolver.HomeResolver;
-import dev.arnaldo.home.command.resolver.help.HelpResolver;
 import dev.arnaldo.home.command.suggestion.HomeSuggestion;
 import dev.arnaldo.home.configuration.HomeMessages;
 import dev.arnaldo.home.configuration.HomeSettings;
@@ -95,8 +94,6 @@ public class HomePlugin extends JavaPlugin {
         final var replacer = new FileCommandReplacer(this.getDataFolder());
 
         handler.registerAnnotationReplacer(CommandPath.class, new CommandPathReplacer(replacer));
-        handler.registerContextResolver(0, CommandHelp.class, new HelpResolver());
-
         handler.registerValueResolverFactory(new HomeResolver());
         handler.getAutoCompleter().registerSuggestionFactory(new HomeSuggestion());
 

@@ -57,3 +57,5 @@ messages:
   teleport-cancelled: '&cTeleporte cancelado! Você se moveu.'
   teleport-blocked: '&cNão foi possível te teletransportar até a sua home!'
   teleported: '&aVocê foi teletransportado até a sua home!'
+
+  player-homes: '&aSuas homes: &f{0}'
