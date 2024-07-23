@@ -33,7 +33,8 @@ public class HomeCommand {
     @HelpPosition(2)
     @CommandPath("set-home-command")
     public void onSetHomeCommand(Player player, String home) {
-        this.service.createHome(player.getName(), home, Position.of(player.getLocation()))
+        this.service.loadUser(player.getName())
+                .thenCompose(user -> user.addHome(home, Position.of(player.getLocation())))
                 .whenComplete((response, failure) -> {
                     if (failure != null) logger.log(Level.SEVERE, "Failed to set home for player " + player.getName(), failure);
                     if (response != null) player.sendMessage(response.getMessage());
@@ -43,11 +44,8 @@ public class HomeCommand {
     @HelpPosition(3)
     @CommandPath("del-home-command")
     public void onDelHomeCommand(Player player, Home home) {
-        this.service.deleteHome(player.getName(), home.getName())
-                .whenComplete((response, failure) -> {
-                    if (failure != null) logger.log(Level.SEVERE, "Failed to delete home for player " + player.getName(), failure);
-                    if (response != null) player.sendMessage(response.getMessage());
-                });
+        final var response = this.service.deleteHome(player.getName(), home.getName());
+        player.sendMessage(response.getMessage());
     }
 
     @HelpPosition(10)
