@@ -28,7 +28,7 @@ public enum HomeSettings {
 
     public static void setup(@NotNull FileConfiguration configuration) {
         for (HomeSettings value : values()) {
-            value.configuration.setObject(configuration.get(value.path));
+            value.configuration.setup(configuration, value.path);
         }
     }
 

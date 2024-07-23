@@ -31,7 +31,7 @@ public enum HomeMessages {
 
     public static void setup(@NotNull FileConfiguration configuration) {
         for (HomeMessages value : values()) {
-            value.configuration.setObject(configuration.get("messages." + value.path));
+            value.configuration.setup(configuration, "messages." + value.path);
         }
     }
 
