@@ -7,10 +7,6 @@ import dev.arnaldo.home.service.HomeService;
 import dev.arnaldo.home.util.Position;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import revxrsal.commands.annotation.Command;
-import revxrsal.commands.annotation.Range;
-import revxrsal.commands.command.CommandActor;
-import revxrsal.commands.help.CommandHelp;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.logging.Level;
@@ -49,14 +45,6 @@ public class HomeCommand {
         final var response = this.service.deleteHome(home);
         if (response.getMessage() != null)
             player.sendMessage(response.getMessage());
-    }
-
-    @HelpPosition(10)
-    @CommandPath("help-command")
-    public void help(CommandActor actor, CommandHelp<String> help) {
-        actor.reply("");
-        actor.reply(String.join("\n", help));
-        actor.reply("");
     }
 
 }

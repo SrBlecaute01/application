@@ -7,10 +7,10 @@ plugins {
 bukkit {
     name = "home"
     prefix = "Home"
-    apiVersion = "21"
+    apiVersion = "1.21"
     version = "${project.version}"
     website = "arnaldo.dev"
-    main = "dev.arnaldo.HomePlugin"
+    main = "dev.arnaldo.home.HomePlugin"
     description = "The home system"
     author = "SrBlecaute"
 }
@@ -24,12 +24,15 @@ dependencies {
     implementation(rootProject.libs.sqlProvider)
     implementation(rootProject.libs.inventoryHelper)
     implementation(rootProject.libs.caffeine)
+    implementation(rootProject.libs.hikary)
 }
 
 tasks.withType<ShadowJar> {
+    val projectName = project.parent?.name ?: "unknown"
+
     dependsOn(":home:api:shadowJar")
     dependsOn(":home:common:shadowJar")
 
     archiveClassifier.set("")
-    archiveFileName.set("${rootProject.name}-${version}.jar")
+    archiveFileName.set("${projectName}-${version}.jar")
 }

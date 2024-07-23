@@ -1,5 +1,6 @@
 package dev.arnaldo.home.service.impl;
 
+import dev.arnaldo.home.HomePlugin;
 import dev.arnaldo.home.cache.HomeCache;
 import dev.arnaldo.home.configuration.HomeMessages;
 import dev.arnaldo.home.configuration.HomeSettings;
@@ -13,6 +14,7 @@ import dev.arnaldo.home.repository.home.HomeRepository;
 import dev.arnaldo.home.service.HomeService;
 import dev.arnaldo.home.task.LocationCheckTask;
 import dev.arnaldo.home.util.Position;
+import dev.arnaldo.home.util.Services;
 import lombok.NonNull;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -20,6 +22,8 @@ import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerTeleportEvent;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
 import java.util.Optional;
@@ -30,9 +34,18 @@ public class HomeServiceImpl implements HomeService {
     private final HomeCache cache;
     private final HomeRepository repository;
 
-    public HomeServiceImpl(@NonNull HomeRepository repository) {
+    protected HomeServiceImpl(@NonNull HomeRepository repository) {
         this.repository = repository;
         this.cache = HomeCache.create();
+
+        if (Services.get(HomeService.class).isEmpty()) {
+            Services.provide(HomePlugin.getInstance(), HomeService.class, this);
+        }
+    }
+
+    @Contract("_ -> new")
+    public static @NotNull HomeService create(@NonNull HomeRepository repository) {
+        return new HomeServiceImpl(repository);
     }
 
     @Override

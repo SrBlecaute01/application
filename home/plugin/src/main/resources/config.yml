@@ -1,4 +1,11 @@
 
+# mysql settings
+MySQL:
+  host: 'localhost:3306'
+  database: 'test'
+  username: 'root'
+  password: 'admin'
+
 home-settings:
   limit: 3
   min-name: 3
@@ -10,15 +17,34 @@ home-settings:
   teleport-sound: 'ENTITY_ENDERMAN_TELEPORT'
 
 home-command:
+  command: ['home']
+  description: 'Teleporta para uma home definida.'
+  usage: 'home <home>'
 
 set-home-command:
+  command: ['sethome']
+  description: 'Define o local de uma home.'
+  usage: 'sethome <home>'
 
 del-home-command:
+  command: ['delhome']
+  description: 'Deleta uma home existente.'
+  usage: 'delhome <home>'
 
-help-command:
-
-
+# messages settings
 messages:
+  no-permission: '&cVocê não tem permissão para fazer isso!'
+
+  must-be-player: '&cSomente jogadores podem fazer isso!'
+  must-be-console: '&cEsse comando não é acessível para jogadores!'
+
+  invalid-command: '&cComando inválido tente: {1}'
+  invalid-subcommand: '&cComando inválido tente: {1}'
+
+  missing-argument: '&cVocê precisa inserir corretamente os argumentos! Uso correto: {1}'
+  too-many-arguments: '&cComando inválido tente: {0}'
+  no-subcommand-specified: '&cInsira o subcomando!'
+
   home-not-found: "&cEssa home não foi encontrada!"
 
   home-limit-reached: '&cVocê atingiu o limite de homes!'

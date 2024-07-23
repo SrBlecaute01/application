@@ -9,6 +9,7 @@ lib-spigot = "1.21-R0.1-SNAPSHOT"
 lib-inventory-helper = "1.5.1"
 lib-lamp = "3.2.1"
 lib-sql-provider = "1.9.1"
+lib-hikary = "5.1.0"
 
 [libraries]
 spigot = { group = "org.spigotmc", name = "spigot", version .ref= "lib-spigot" }
@@ -19,6 +20,7 @@ inventoryHelper = { group = "com.github.SrBlecaute01", name = "InventoryHelper",
 lamp-commom = { group = "com.github.Revxrsal.Lamp", name = "common", version.ref = "lib-lamp"}
 lamp-bukkit = { group = "com.github.Revxrsal.Lamp", name = "bukkit", version.ref = "lib-lamp"}
 sqlProvider = { group = "com.github.Jaoow", name = "sql-provider", version.ref = "lib-sql-provider"}
+hikary = { group = "com.zaxxer", name = "HikariCP", version.ref = "lib-hikary"}
 
 [plugins]
 shadowjar = { id = "com.github.johnrengelman.shadow", version.ref = "plugin-shadowjar" }
