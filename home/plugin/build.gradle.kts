@@ -16,6 +16,9 @@ bukkit {
 }
 
 dependencies {
+    implementation(project(":home:api"))
+    implementation(project(":home:common"))
+
     implementation(rootProject.libs.lamp.commom)
     implementation(rootProject.libs.lamp.bukkit)
     implementation(rootProject.libs.sqlProvider)
@@ -25,6 +28,7 @@ dependencies {
 
 tasks.withType<ShadowJar> {
     dependsOn(":home:api:shadowJar")
+    dependsOn(":home:common:shadowJar")
 
     archiveClassifier.set("")
     archiveFileName.set("${rootProject.name}-${version}.jar")

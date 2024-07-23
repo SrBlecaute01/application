@@ -12,3 +12,5 @@ include("home:common")
 findProject(":home:common")?.name = "common"
 include("home:common")
 findProject(":home:common")?.name = "common"
+include("home:common")
+findProject(":home:common")?.name = "common"
