@@ -15,6 +15,7 @@ import dev.arnaldo.home.service.HomeService;
 import dev.arnaldo.home.task.LocationCheckTask;
 import dev.arnaldo.home.util.Position;
 import dev.arnaldo.home.util.Services;
+import lombok.Getter;
 import lombok.NonNull;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -31,6 +32,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class HomeServiceImpl implements HomeService {
 
+    @Getter
     private final HomeCache cache;
     private final HomeRepository repository;
 

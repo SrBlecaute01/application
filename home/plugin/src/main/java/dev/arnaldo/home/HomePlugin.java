@@ -13,9 +13,12 @@ import dev.arnaldo.home.command.resolver.help.HelpResolver;
 import dev.arnaldo.home.command.suggestion.HomeSuggestion;
 import dev.arnaldo.home.configuration.HomeMessages;
 import dev.arnaldo.home.configuration.HomeSettings;
+import dev.arnaldo.home.listener.PlayerJoinListener;
+import dev.arnaldo.home.listener.PlayerQuitListener;
 import dev.arnaldo.home.repository.home.impl.HomeRepositoryImpl;
 import dev.arnaldo.home.service.HomeService;
 import dev.arnaldo.home.service.impl.HomeServiceImpl;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import revxrsal.commands.bukkit.BukkitCommandHandler;
@@ -39,6 +42,7 @@ public class HomePlugin extends JavaPlugin {
             initDatabase();
             initConfig();
             initServices();
+            initListeners();
             initCommands();
 
         } catch (SQLException exception) {
@@ -75,6 +79,14 @@ public class HomePlugin extends JavaPlugin {
         repository.createTable();
 
         HomeServiceImpl.create(repository);
+    }
+
+    private void initListeners() {
+        final var service = (HomeServiceImpl) HomeService.getInstance();
+        final var manager = Bukkit.getPluginManager();
+
+        manager.registerEvents(new PlayerJoinListener(service), this);
+        manager.registerEvents(new PlayerQuitListener(service.getCache()), this);
     }
 
     private void initCommands() {

@@ -12,7 +12,7 @@ home-settings:
   max-name: 16
 
   teleport-delay: 3
-  teleport-particle: 'PORTAL'
+  teleport-particles: 'PORTAL'
   teleport-particles-count: 10
   teleport-sound: 'ENTITY_ENDERMAN_TELEPORT'
 
