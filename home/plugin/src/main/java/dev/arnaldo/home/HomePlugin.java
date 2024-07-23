@@ -21,7 +21,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import revxrsal.commands.bukkit.BukkitCommandHandler;
-import revxrsal.commands.help.CommandHelp;
 import revxrsal.commands.locales.Locales;
 
 import java.io.File;

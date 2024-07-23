@@ -6,26 +6,45 @@ MySQL:
   username: 'root'
   password: 'admin'
 
+# home settings
 home-settings:
+  # limit of homes a player can be
   limit: 3
+  # min home name characters
   min-name: 3
+  # max home name characters
   max-name: 16
-
+  # delay to teleport player
   teleport-delay: 3
+  # particle displayed when teleport
   teleport-particles: 'PORTAL'
+  # number of particles
   teleport-particles-count: 10
+  # sound played when teleport
   teleport-sound: 'ENTITY_ENDERMAN_TELEPORT'
 
+# command to list player homes
+homes-command:
+  # command aliases
+  command: ['homes']
+  # command description
+  description: 'Visualiza as homes definidas.'
+  # command usage
+  usage: 'homes'
+
+# command to teleport to a home
 home-command:
   command: ['home']
   description: 'Teleporta para uma home definida.'
   usage: 'home <home>'
 
+# command to set a home
 set-home-command:
   command: ['sethome']
   description: 'Define o local de uma home.'
   usage: 'sethome <home>'
 
+# command to delete a home
 del-home-command:
   command: ['delhome']
   description: 'Deleta uma home existente.'
@@ -59,3 +78,5 @@ messages:
   teleported: '&aVocê foi teletransportado até a sua home!'
 
   player-homes: '&aSuas homes: &f{0}'
+
+  already-teleporting: '&cVocê já está sendo teletransportado!'

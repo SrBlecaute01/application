@@ -28,13 +28,16 @@ import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class HomeServiceImpl implements HomeService {
 
     @Getter
     private final HomeCache cache;
     private final HomeRepository repository;
+    private final Set<String> teleporting = ConcurrentHashMap.newKeySet();
 
     protected HomeServiceImpl(@NonNull HomeRepository repository) {
         this.repository = repository;
@@ -114,13 +117,19 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public CompletableFuture<HomeResponse> teleport(@NonNull Player player, @NonNull Home home) {
         final var future = new CompletableFuture<HomeResponse>();
+        if (this.teleporting.contains(player.getName())) {
+            future.complete(new HomeResponseImpl(false, home, HomeMessages.ALREADY_TELEPORTING.asString()));
+            return future;
+        }
 
-        new LocationCheckTask(player, HomeSettings.TELEPORT_DELAY.asInt(), time -> {
+        this.teleporting.add(player.getName());
+        LocationCheckTask.of(player, HomeSettings.TELEPORT_DELAY.asInt(), time -> {
             final var message = HomeMessages.TELEPORTING.asString();
             final var component = new TextComponent(MessageFormat.format(message, time));
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, component);
 
-            }, accept -> {
+        }, accept -> {
+            this.teleporting.remove(player.getName());
 
             if (!accept) {
                 future.complete(new HomeResponseImpl(false, home, HomeMessages.TELEPORT_CANCELLED.asString()));

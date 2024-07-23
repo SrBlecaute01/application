@@ -22,6 +22,7 @@ public enum HomeMessages {
     TELEPORT_BLOCKED("teleport-blocked"),
     TELEPORTED("teleported"),
 
+    ALREADY_TELEPORTING("already-teleporting"),
     PLAYER_HOMES("player-homes"),
 
     ;

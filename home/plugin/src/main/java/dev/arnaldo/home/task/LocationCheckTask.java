@@ -32,9 +32,20 @@ public class LocationCheckTask implements Runnable {
         this.task = Bukkit.getScheduler().runTaskTimerAsynchronously(HomePlugin.getInstance(), this, 0, 20);
     }
 
+    @NotNull
+    public static LocationCheckTask of(@NotNull Player player, int delay, @NotNull Consumer<Integer> onTime, @NotNull Consumer<Boolean> onAccept) {
+        return new LocationCheckTask(player, delay, onTime, onAccept);
+    }
+
     @Override
     public void run() {
         try {
+            if (!player.isOnline()) {
+                this.task.cancel();
+                Bukkit.getScheduler().runTask(HomePlugin.getInstance(), () -> this.onAccept.accept(false));
+                return;
+            }
+
             final var current = player.getLocation();
             final var world = player.getWorld();
 

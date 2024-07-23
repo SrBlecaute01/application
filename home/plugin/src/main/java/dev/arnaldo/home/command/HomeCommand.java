@@ -39,7 +39,10 @@ public class HomeCommand {
     public void onHomeCommand(Player player, Home home) {
         this.service.teleport(player, home).whenComplete((response, failure) -> {
             if (failure != null) logger.log(Level.SEVERE, "Failed to teleport player " + player.getName(), failure);
-            if (response != null && response.getMessage() != null) player.sendMessage(response.getMessage());
+            if (response != null && response.getMessage() != null) {
+                final var component = new TextComponent(response.getMessage());
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, component);
+            }
         });
     }
 
@@ -57,8 +60,7 @@ public class HomeCommand {
     public void onDelHomeCommand(Player player, Home home) {
         final var response = this.service.deleteHome(home);
         if (response.getMessage() != null) {
-            final var component = new TextComponent(response.getMessage());
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, component);
+            player.sendMessage(response.getMessage());
         }
     }
 
