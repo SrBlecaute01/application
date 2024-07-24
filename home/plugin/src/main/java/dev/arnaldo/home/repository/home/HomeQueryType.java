@@ -15,6 +15,8 @@ public enum HomeQueryType {
             "`x` DOUBLE NOT NULL," +
             "`y` DOUBLE NOT NULL," +
             "`z` DOUBLE NOT NULL," +
+            "`yaw` FLOAT NOT NULL DEFAULT 0," +
+            "`pitch` FLOAT NOT NULL DEFAULT 0," +
             "PRIMARY KEY (`owner`, `name`))"
     ),
 
@@ -22,8 +24,14 @@ public enum HomeQueryType {
     SELECT_BY_USER_AND_NAME("SELECT * FROM `homes` WHERE UPPER(`owner`) = UPPER(?) AND UPPER(`name`) = UPPER(?)"),
     DELETE_BY_USER_AND_NAME("DELETE FROM `homes` WHERE UPPER(`owner`) = UPPER(?) AND UPPER(`name`) = UPPER(?)"),
     INSERT_OR_UPDATE(
-            "INSERT INTO `homes` (`owner`, `name`, `world`, `x`, `y`, `z`) VALUES (?, ?, ?, ?, ?, ?) " +
-            "ON DUPLICATE KEY UPDATE `world` = VALUES(`world`), `x` = VALUES(`x`), `y` = VALUES(`y`), `z` = VALUES(`z`)"
+            "INSERT INTO `homes` (`owner`, `name`, `world`, `x`, `y`, `z`, `yaw`, `pitch`) VALUES (?, ?, ?, ?, ?, ?, ?, ?) " +
+            "ON DUPLICATE KEY UPDATE " +
+                    "`world` = VALUES(`world`), " +
+                    "`x` = VALUES(`x`), " +
+                    "`y` = VALUES(`y`), " +
+                    "`z` = VALUES(`z`), " +
+                    "`yaw` = VALUES(`yaw`), " +
+                    "`pitch` = VALUES(`pitch`)"
     )
 
     ;

@@ -21,8 +21,9 @@ public class HomeAdapter implements SQLResultAdapter<Home> {
         final var x = set.getDouble("x");
         final var y = set.getDouble("y");
         final var z = set.getDouble("z");
-        final var position = Position.of(x, y, z, world);
-
+        final var yaw = set.getFloat("yaw");
+        final var pitch = set.getFloat("pitch");
+        final var position = Position.of(x, y, z, yaw, pitch, world);
         return new HomeImpl(owner, name, position);
     }
 

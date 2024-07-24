@@ -91,6 +91,8 @@ public class HomeRepositoryImpl implements HomeRepository {
         statement.setDouble(4, position.getX());
         statement.setDouble(5, position.getY());
         statement.setDouble(6, position.getZ());
+        statement.setFloat(7, position.getYaw());
+        statement.setFloat(8, position.getPitch());
     }
 
 }
