@@ -41,6 +41,8 @@ O Docker irá automaticamente construir os plugins, inicializar o banco de dados
 
 O plugin é um simples plugin de homes que permite aos jogadores definir localizações e voltar para elas quando quiserem.
 
+https://github.com/user-attachments/assets/211b8145-7ead-470c-8a4a-dc7ef059a333
+
 | Comandos | Descrição  |
 |--|--|
 | /homes | Visualiza as homes definidas |
@@ -53,3 +55,5 @@ As homes são salvas no banco de dados e são somente carregadas quando um playe
 ## WindCharger
 
 O plugin permite que tanto a força como a velocidade e a partícula de um Wind Charger possam ser alteradas em sua configuração. Utilizando os eventos de projectile hit, knockback e projectile launch para permitir essas alterações.
+
+https://github.com/user-attachments/assets/e113b813-793c-4006-9b55-ee6dd53fd538
