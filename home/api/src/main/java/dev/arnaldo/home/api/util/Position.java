@@ -1,4 +1,4 @@
-package dev.arnaldo.home.util;
+package dev.arnaldo.home.api.util;
 
 import lombok.Getter;
 import lombok.NonNull;
@@ -14,6 +14,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
+/**
+ * Represents a position in the world.
+ */
 @Getter @Setter
 @RequiredArgsConstructor
 public class Position {

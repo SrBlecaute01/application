@@ -2,7 +2,7 @@ package dev.arnaldo.home.repository.home.impl;
 
 import com.jaoow.sql.executor.SQLExecutor;
 import com.jaoow.sql.executor.function.StatementConsumer;
-import dev.arnaldo.home.model.Home;
+import dev.arnaldo.home.api.model.Home;
 import dev.arnaldo.home.repository.home.HomeAdapter;
 import dev.arnaldo.home.repository.home.HomeQueryType;
 import dev.arnaldo.home.repository.home.HomeRepository;

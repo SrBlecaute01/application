@@ -1,20 +1,16 @@
-package dev.arnaldo.home.util;
+package dev.arnaldo.home.api.util;
 
 import lombok.NonNull;
+import lombok.experimental.UtilityClass;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
-import org.bukkit.plugin.ServicesManager;
 
-import java.util.Objects;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
-/**
- * Utility class for interacting with the Bukkit {@link ServicesManager}.
- */
+@UtilityClass
 public final class Services {
 
     /**
@@ -26,8 +22,7 @@ public final class Services {
      * @return the service instance
      */
     @Nonnull
-    public static <T> T load(@Nonnull Class<T> clazz) {
-        Objects.requireNonNull(clazz, "clazz");
+    public <T> T load(@NonNull Class<T> clazz) {
         return get(clazz).orElseThrow(() -> new IllegalStateException("No registration present for service '" + clazz.getName() + "'"));
     }
 
@@ -39,13 +34,9 @@ public final class Services {
      * @return the service instance, as an optional
      */
     @Nonnull
-    public static <T> Optional<T> get(@Nonnull Class<T> clazz) {
-        Objects.requireNonNull(clazz, "clazz");
-        RegisteredServiceProvider<T> registration = Bukkit.getServicesManager().getRegistration(clazz);
-        if (registration == null) {
-            return Optional.empty();
-        }
-        return Optional.of(registration.getProvider());
+    public <T> Optional<T> get(@NonNull Class<T> clazz) {
+        final var registration = Bukkit.getServicesManager().getRegistration(clazz);
+        return registration == null ? Optional.empty() : Optional.of(registration.getProvider());
     }
 
     /**
@@ -59,11 +50,7 @@ public final class Services {
      * @return the same service instance
      */
     @Nonnull
-    public static <T> T provide(@Nonnull Class<T> clazz, @Nonnull T instance, @Nonnull Plugin plugin, @Nonnull ServicePriority priority) {
-        Objects.requireNonNull(clazz, "clazz");
-        Objects.requireNonNull(instance, "instance");
-        Objects.requireNonNull(plugin, "plugin");
-        Objects.requireNonNull(priority, "priority");
+    public <T> T provide(@NonNull Class<T> clazz, @NonNull T instance, @NonNull Plugin plugin, @NonNull ServicePriority priority) {
         Bukkit.getServicesManager().register(clazz, instance, plugin, priority);
         return instance;
     }
@@ -78,7 +65,7 @@ public final class Services {
      * @return the same service instance
      */
     @Nonnull
-    public static <T> T provide(@NonNull Plugin plugin, @Nonnull Class<T> clazz, @Nonnull T instance, @Nonnull ServicePriority priority) {
+    public <T> T provide(@NonNull Plugin plugin, @Nonnull Class<T> clazz, @Nonnull T instance, @Nonnull ServicePriority priority) {
         return provide(clazz, instance, plugin, priority);
     }
 
@@ -91,12 +78,8 @@ public final class Services {
      * @return the same service instance
      */
     @Nonnull
-    public static <T> T provide(@NonNull Plugin plugin, @Nonnull Class<T> clazz, @Nonnull T instance) {
+    public <T> T provide(@NonNull Plugin plugin, @Nonnull Class<T> clazz, @Nonnull T instance) {
         return provide(plugin, clazz, instance, ServicePriority.Normal);
-    }
-
-    private Services() {
-        throw new UnsupportedOperationException("This class cannot be instantiated");
     }
 
 }

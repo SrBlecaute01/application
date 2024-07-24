@@ -1,7 +1,7 @@
 package dev.arnaldo.home.command.suggestion;
 
-import dev.arnaldo.home.model.Home;
-import dev.arnaldo.home.service.HomeService;
+import dev.arnaldo.home.api.model.Home;
+import dev.arnaldo.home.api.service.HomeService;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import revxrsal.commands.autocomplete.SuggestionProvider;

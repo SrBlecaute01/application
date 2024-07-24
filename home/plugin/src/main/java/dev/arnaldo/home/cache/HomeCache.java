@@ -1,6 +1,6 @@
 package dev.arnaldo.home.cache;
 
-import dev.arnaldo.home.model.HomeUser;
+import dev.arnaldo.home.api.model.HomeUser;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Contract;

@@ -1,20 +1,20 @@
-package dev.arnaldo.home.service.impl;
+package dev.arnaldo.home.service;
 
 import dev.arnaldo.home.HomePlugin;
 import dev.arnaldo.home.cache.HomeCache;
 import dev.arnaldo.home.configuration.HomeMessages;
 import dev.arnaldo.home.configuration.HomeSettings;
-import dev.arnaldo.home.model.Home;
+import dev.arnaldo.home.api.model.Home;
 import dev.arnaldo.home.model.HomeImpl;
-import dev.arnaldo.home.model.HomeUser;
+import dev.arnaldo.home.api.model.HomeUser;
 import dev.arnaldo.home.model.HomeUserImpl;
-import dev.arnaldo.home.model.response.HomeResponse;
+import dev.arnaldo.home.api.model.response.HomeResponse;
 import dev.arnaldo.home.model.response.HomeResponseImpl;
 import dev.arnaldo.home.repository.home.HomeRepository;
-import dev.arnaldo.home.service.HomeService;
+import dev.arnaldo.home.api.service.HomeService;
 import dev.arnaldo.home.task.LocationCheckTask;
-import dev.arnaldo.home.util.Position;
-import dev.arnaldo.home.util.Services;
+import dev.arnaldo.home.api.util.Position;
+import dev.arnaldo.home.api.util.Services;
 import lombok.Getter;
 import lombok.NonNull;
 import net.md_5.bungee.api.ChatMessageType;

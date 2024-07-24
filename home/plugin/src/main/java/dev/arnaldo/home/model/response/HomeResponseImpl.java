@@ -1,6 +1,7 @@
 package dev.arnaldo.home.model.response;
 
-import dev.arnaldo.home.model.Home;
+import dev.arnaldo.home.api.model.Home;
+import dev.arnaldo.home.api.model.response.HomeResponse;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Nullable;

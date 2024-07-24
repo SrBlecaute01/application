@@ -1,10 +1,10 @@
 package dev.arnaldo.home.command;
 
 import dev.arnaldo.home.configuration.HomeMessages;
-import dev.arnaldo.home.model.Home;
+import dev.arnaldo.home.api.model.Home;
 import dev.arnaldo.home.command.annotation.CommandPath;
-import dev.arnaldo.home.service.HomeService;
-import dev.arnaldo.home.util.Position;
+import dev.arnaldo.home.api.service.HomeService;
+import dev.arnaldo.home.api.util.Position;
 import lombok.RequiredArgsConstructor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;

@@ -14,9 +14,10 @@ import dev.arnaldo.home.configuration.HomeMessages;
 import dev.arnaldo.home.configuration.HomeSettings;
 import dev.arnaldo.home.listener.PlayerJoinListener;
 import dev.arnaldo.home.listener.PlayerQuitListener;
+import dev.arnaldo.home.provider.HomeProvider;
 import dev.arnaldo.home.repository.home.impl.HomeRepositoryImpl;
-import dev.arnaldo.home.service.HomeService;
-import dev.arnaldo.home.service.impl.HomeServiceImpl;
+import dev.arnaldo.home.api.service.HomeService;
+import dev.arnaldo.home.service.HomeServiceImpl;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -76,7 +77,8 @@ public class HomePlugin extends JavaPlugin {
         final var repository = new HomeRepositoryImpl(this.executor);
         repository.createTable();
 
-        HomeServiceImpl.create(repository);
+        final var service = HomeServiceImpl.create(repository);
+        HomeProvider.create(service);
     }
 
     private void initListeners() {

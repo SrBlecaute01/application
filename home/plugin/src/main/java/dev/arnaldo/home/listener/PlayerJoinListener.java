@@ -1,7 +1,7 @@
 package dev.arnaldo.home.listener;
 
 import dev.arnaldo.home.HomePlugin;
-import dev.arnaldo.home.service.HomeService;
+import dev.arnaldo.home.api.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;

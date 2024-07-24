@@ -1,9 +1,9 @@
 package dev.arnaldo.home.repository.home;
 
 import com.jaoow.sql.executor.adapter.SQLResultAdapter;
-import dev.arnaldo.home.model.Home;
+import dev.arnaldo.home.api.model.Home;
 import dev.arnaldo.home.model.HomeImpl;
-import dev.arnaldo.home.util.Position;
+import dev.arnaldo.home.api.util.Position;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

@@ -1,8 +1,8 @@
 package dev.arnaldo.home.command.resolver;
 
 import dev.arnaldo.home.configuration.HomeMessages;
-import dev.arnaldo.home.model.Home;
-import dev.arnaldo.home.service.HomeService;
+import dev.arnaldo.home.api.model.Home;
+import dev.arnaldo.home.api.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

@@ -1,6 +1,6 @@
 package dev.arnaldo.home.repository.home;
 
-import dev.arnaldo.home.model.Home;
+import dev.arnaldo.home.api.model.Home;
 import dev.arnaldo.home.repository.Repository;
 import org.jetbrains.annotations.NotNull;
 

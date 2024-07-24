@@ -1,9 +1,11 @@
 package dev.arnaldo.home.model;
 
-import dev.arnaldo.home.model.response.HomeResponse;
+import dev.arnaldo.home.api.model.Home;
+import dev.arnaldo.home.api.model.HomeUser;
+import dev.arnaldo.home.api.model.response.HomeResponse;
 import dev.arnaldo.home.model.response.HomeResponseImpl;
-import dev.arnaldo.home.service.HomeService;
-import dev.arnaldo.home.util.Position;
+import dev.arnaldo.home.api.service.HomeService;
+import dev.arnaldo.home.api.util.Position;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
