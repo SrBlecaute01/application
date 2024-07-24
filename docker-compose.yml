@@ -1,0 +1,44 @@
+name: application
+version: "3.7"
+
+services:
+  mariadb:
+    container_name: application-mariadb
+    image: mariadb:latest
+    ports:
+      - '3306:3306'
+    networks:
+      - application-network
+    volumes:
+      - application-mariadb:/var/lib/mysql
+    environment:
+      MARIADB_DATABASE: test
+      MARIADB_ROOT_PASSWORD: admin
+  server:
+    container_name: application-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: application-server
+    depends_on:
+      - mariadb
+    ports:
+      - '25565:25565'
+    networks:
+      - application-network
+    volumes:
+      - application-server:/home
+    environment:
+      SERVER_PORT: 25565
+    stdin_open: true
+    tty: true
+
+networks:
+  application-network:
+    name: application-network
+
+volumes:
+  application-mariadb:
+    name: application-mariadb
+  application-server:
+    name: application-server
