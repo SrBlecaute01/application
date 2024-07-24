@@ -6,3 +6,4 @@ include("home:plugin")
 
 findProject(":home:api")?.name = "api"
 findProject(":home:plugin")?.name = "plugin"
+include("windcharge")

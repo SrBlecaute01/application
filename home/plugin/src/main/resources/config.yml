@@ -1,7 +1,7 @@
 
 # mysql settings
 MySQL:
-  host: '127.0.0.1:3306'
+  host: 'application-mariadb:3306'
   database: 'test'
   username: 'root'
   password: 'admin'

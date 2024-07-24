@@ -1,0 +1,9 @@
+
+# the wind charge velocity multiplier
+velocity: 2
+# the wind charge knockback power
+power: 5
+# the wind charge particle when hit entity or block
+hit-particle: FLAME
+# the particle count
+hit-particle-count: 30
