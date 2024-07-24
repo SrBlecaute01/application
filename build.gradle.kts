@@ -19,12 +19,11 @@ allprojects {
     }
 
     repositories {
-        mavenLocal()
         mavenCentral()
 
         maven("https://jitpack.io")
         maven("https://repo.codemc.io/repository/nms/")
-        maven("https://repo.codemc.io/repository/nms/")
+        maven("https://libraries.minecraft.net/")
     }
 
     dependencies {
