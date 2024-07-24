@@ -2,21 +2,17 @@
 plugin-shadowjar = "8.1.1"
 plugin-bukkit-yml = "0.6.0"
 
-lib-caffeine = "3.1.8"
 lib-jetbrains-annotations = "24.1.0"
 lib-lombok = "1.18.34"
 lib-spigot = "1.21-R0.1-SNAPSHOT"
-lib-inventory-helper = "1.5.1"
 lib-lamp = "3.2.1"
 lib-sql-provider = "1.9.1"
 lib-hikary = "5.1.0"
 
 [libraries]
 spigot = { group = "org.spigotmc", name = "spigot", version .ref= "lib-spigot" }
-caffeine = { group = "com.github.ben-manes.caffeine", name = "caffeine", version.ref = "lib-caffeine" }
 jetbrainsAnnotations = { group = "org.jetbrains", name = "annotations", version.ref = "lib-jetbrains-annotations" }
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lib-lombok" }
-inventoryHelper = { group = "com.github.SrBlecaute01", name = "InventoryHelper", version.ref = "lib-inventory-helper"}
 lamp-commom = { group = "com.github.Revxrsal.Lamp", name = "common", version.ref = "lib-lamp"}
 lamp-bukkit = { group = "com.github.Revxrsal.Lamp", name = "bukkit", version.ref = "lib-lamp"}
 sqlProvider = { group = "com.github.Jaoow", name = "sql-provider", version.ref = "lib-sql-provider"}
